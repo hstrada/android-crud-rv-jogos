@@ -56,7 +56,7 @@ public class JogoDAO {
 
     public List<Jogo> getAll() {
         List<Jogo> jogos = new LinkedList<>();
-        String rawQuery = "SELECT nome, fabricante FROM " +
+        String rawQuery = "SELECT id, nome, fabricante FROM " +
                 JogoDAO.TABELA_JOGO;
         SQLiteDatabase db = dbo.getReadableDatabase();
         Cursor cursor = db.rawQuery(rawQuery, null);
@@ -64,8 +64,9 @@ public class JogoDAO {
         if (cursor.moveToFirst()) {
             do {
                 jogo = new Jogo();
-                jogo.setNome(cursor.getString(0));
-                jogo.setFabricante(cursor.getString(1));
+                jogo.setId(cursor.getInt(0));
+                jogo.setNome(cursor.getString(1));
+                jogo.setFabricante(cursor.getString(2));
                 jogos.add(jogo);
             } while (cursor.moveToNext());
         }
