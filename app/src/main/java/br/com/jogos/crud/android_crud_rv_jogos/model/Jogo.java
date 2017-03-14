@@ -6,11 +6,28 @@ package br.com.jogos.crud.android_crud_rv_jogos.model;
 
 public class Jogo {
 
+    private int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     private String nome;
     private String fabricante;
 
     public Jogo(String nome, String fabricante) {
 
+        this.nome = nome;
+        this.fabricante = fabricante;
+
+    }
+
+    public Jogo(int id, String nome, String fabricante) {
+        this.id = id;
         this.nome = nome;
         this.fabricante = fabricante;
 

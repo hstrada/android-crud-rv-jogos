@@ -43,13 +43,18 @@ public class JogoAdapter extends RecyclerView.Adapter {
 
         Jogo jogo  = jogos.get(position);
 
-        ((JogoViewHolder) holder).nome.setText(jogo.getNome());
-        ((JogoViewHolder) holder).fabricante.setText(jogo.getFabricante());
+        ((JogoViewHolder) holder).preencher(jogo);
 
     }
 
     @Override
     public int getItemCount() {
         return jogos.size();
+    }
+
+    public void remove(int position) {
+        jogos.remove(position);
+        notifyItemRemoved(position);
+        notifyItemRangeChanged(position, getItemCount());
     }
 }

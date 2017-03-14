@@ -47,6 +47,13 @@ public class JogoDAO {
         }
     }
 
+    public void update(Jogo jogo) {
+        SQLiteDatabase db = dbo.getWritableDatabase();
+        db.execSQL("update " + TABELA_JOGO + " set " + COLUNA_NOME + " = '" + jogo.getNome() + "', " + COLUNA_FABRICANTE + " = '" + jogo.getFabricante() + "' where " + COLUNA_ID + " = '" + jogo.getId() + "'");
+        db.close();
+    }
+
+
     public List<Jogo> getAll() {
         List<Jogo> jogos = new LinkedList<>();
         String rawQuery = "SELECT nome, fabricante FROM " +
@@ -64,4 +71,12 @@ public class JogoDAO {
         }
         return jogos;
     }
+
+    public void deletaJogo(int id) {
+        String where = COLUNA_ID + "=" + id;
+        SQLiteDatabase db = dbo.getWritableDatabase();
+        db.delete(JogoDAO.TABELA_JOGO, where, null);
+
+    }
+
 }

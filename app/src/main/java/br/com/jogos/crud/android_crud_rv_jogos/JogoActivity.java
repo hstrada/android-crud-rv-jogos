@@ -19,8 +19,11 @@ public class JogoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jogo);
+
         tilNome = (TextInputLayout) findViewById(R.id.tilNome);
         tilFabricante = (TextInputLayout) findViewById(R.id.tilFabricante);
+
+        carregarJogo();
 
     }
 
@@ -38,5 +41,17 @@ public class JogoActivity extends AppCompatActivity {
         Intent intentMessage = new Intent();
         setResult(CODE_JOGO, intentMessage);
         finish();
+    }
+
+    public void carregarJogo() {
+        final Bundle extras = getIntent().getExtras();
+        Long jogoId = (extras != null) ? extras.getLong("jogo") : null;
+
+        if (jogoId == null) {
+            Jogo jogo = new Jogo();
+        } else {
+            JogoDAO jogoDAO = new JogoDAO(this);
+            // jogoDAO.
+        }
     }
 }
