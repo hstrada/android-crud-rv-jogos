@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="C:\Users\Mescla\Documents\GitHub\android-crud-rv-jogos\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="095a955d5008718954d11ee7dd0eb251b094d880">
+        <dex dex="C:\Users\Mescla\Documents\GitHub\android-crud-rv-jogos\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_05c0a82d37b33dcc3b390ff1871cdbfaea1fc87c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Mescla\Documents\GitHub\android-crud-rv-jogos\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
+        <dex dex="C:\Users\Mescla\Documents\GitHub\android-crud-rv-jogos\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_17119324aa0d7fa147e2eab7ce6927407d28659d\classes.dex" />
+    </item>
+
+</items>
