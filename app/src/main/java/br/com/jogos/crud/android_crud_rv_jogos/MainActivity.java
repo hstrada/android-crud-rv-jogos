@@ -1,5 +1,6 @@
 package br.com.jogos.crud.android_crud_rv_jogos;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -14,6 +15,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -33,15 +35,7 @@ public class MainActivity extends AppCompatActivity
 
         rvLista = (RecyclerView) findViewById(R.id.rvLista);
 
-        JogoDAO jogoDAO = new JogoDAO(this);
-        List<Jogo> jogos = jogoDAO.getAll();
-
-        rvLista.setAdapter(new JogoAdapter(jogos, this));
-
-        RecyclerView.LayoutManager layout = new LinearLayoutManager(this,
-                LinearLayoutManager.VERTICAL, false);
-
-        rvLista.setLayoutManager(layout);
+        carregarJogos();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -50,8 +44,9 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                startActivityForResult(new Intent(MainActivity.this,
+                                JogoActivity.class),
+                        JogoActivity.CODE_JOGO);
             }
         });
 
@@ -73,6 +68,30 @@ public class MainActivity extends AppCompatActivity
         } else {
             super.onBackPressed();
         }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode == RESULT_CANCELED) {
+            Toast.makeText(MainActivity.this, "Cancelado",
+                    Toast.LENGTH_LONG).show();
+        } else if(requestCode == JogoActivity.CODE_JOGO) {
+            carregarJogos();
+        }
+    }
+
+    private void carregarJogos() {
+        JogoDAO jogoDAO = new JogoDAO(this);
+        List<Jogo> jogos = jogoDAO.getAll();
+
+        rvLista.setAdapter(new JogoAdapter(jogos, this));
+
+        RecyclerView.LayoutManager layout = new LinearLayoutManager(this,
+                LinearLayoutManager.VERTICAL, false);
+
+        rvLista.setLayoutManager(layout);
     }
 
     @Override
@@ -121,4 +140,5 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 }
