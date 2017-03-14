@@ -32,7 +32,7 @@ public class JogoAdapter extends RecyclerView.Adapter {
 
         View view = LayoutInflater.from(context)
                 .inflate(R.layout.jogo_item_lista, parent, false);
-        JogoViewHolder holder = new JogoViewHolder(view);
+        JogoViewHolder holder = new JogoViewHolder(view, this);
         return holder;
     }
 
