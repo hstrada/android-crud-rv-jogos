@@ -47,10 +47,21 @@ public class JogoDAO {
         }
     }
 
-    public void update(Jogo jogo) {
+    public String update(Jogo jogo, Long id) {
+
+        long resultado;
         SQLiteDatabase db = dbo.getWritableDatabase();
-        db.execSQL("update " + TABELA_JOGO + " set " + COLUNA_NOME + " = '" + jogo.getNome() + "', " + COLUNA_FABRICANTE + " = '" + jogo.getFabricante() + "' where " + COLUNA_ID + " = '" + jogo.getId() + "'");
-        db.close();
+
+        ContentValues values = new ContentValues();
+        values.put(COLUNA_NOME, jogo.getNome());
+        values.put(COLUNA_FABRICANTE, jogo.getFabricante());
+        resultado = db.update(JogoDAO.TABELA_JOGO, values, JogoDAO.COLUNA_ID + "=" + id, null);
+
+        if (resultado == -1) {
+            return "Erro ao inserir registro";
+        } else {
+            return "Registro inserido com sucesso";
+        }
     }
 
 
@@ -64,7 +75,7 @@ public class JogoDAO {
         if (cursor.moveToFirst()) {
             do {
                 jogo = new Jogo();
-                jogo.setId(cursor.getInt(0));
+                jogo.setId(cursor.getLong(0));
                 jogo.setNome(cursor.getString(1));
                 jogo.setFabricante(cursor.getString(2));
                 jogos.add(jogo);
@@ -73,7 +84,20 @@ public class JogoDAO {
         return jogos;
     }
 
-    public void deletaJogo(int id) {
+    public Jogo getJogoById(Long id) {
+        SQLiteDatabase db = dbo.getWritableDatabase();
+        String query = "SELECT id, nome, fabricante FROM " + JogoDAO.TABELA_JOGO + " WHERE id = ?";
+        Cursor cursor = db.rawQuery(query, new String[]{String.valueOf(id)});
+        cursor.moveToFirst();
+        Jogo jogo = new Jogo();
+        jogo.setId(cursor.getLong(0));
+        jogo.setNome(cursor.getString(1));
+        jogo.setFabricante(cursor.getString(2));
+        db.close();
+        return jogo;
+    }
+
+    public void deletaJogo(Long id) {
         String where = COLUNA_ID + "=" + id;
         SQLiteDatabase db = dbo.getWritableDatabase();
         db.delete(JogoDAO.TABELA_JOGO, where, null);

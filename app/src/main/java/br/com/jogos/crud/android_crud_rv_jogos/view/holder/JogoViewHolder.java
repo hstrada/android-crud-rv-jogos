@@ -23,7 +23,7 @@ public class JogoViewHolder extends RecyclerView.ViewHolder implements View.OnLo
 
     public final TextView nome;
     public final TextView fabricante;
-    private int jogoId;
+    private Long jogoId;
     public final JogoAdapter adapter;
 
 
@@ -58,7 +58,7 @@ public class JogoViewHolder extends RecyclerView.ViewHolder implements View.OnLo
                     case R.id.menuEditar:
 
                         final Intent intent = new Intent(context, JogoActivity.class);
-                        intent.putExtra("jogo", jogoId);
+                        intent.putExtra("jogoId", jogoId);
                         context.startActivityForResult(intent, JogoActivity.CODE_JOGO);
 
                         break;

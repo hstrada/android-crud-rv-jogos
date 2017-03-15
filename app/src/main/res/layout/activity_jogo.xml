@@ -18,7 +18,8 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nome do Jogo" />
+            android:hint="Nome do Jogo"
+            android:id="@+id/etNome" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -29,12 +30,13 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nome do Fabricante" />
+            android:hint="Nome do Fabricante"
+            android:id="@+id/etFabricante" />
     </android.support.design.widget.TextInputLayout>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="cadastrar"
-        android:text="Cadastar" />
+        android:text="Cadastrar" />
 </LinearLayout>
