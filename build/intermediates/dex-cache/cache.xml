@@ -3,12 +3,39 @@
 
     <item
         is-multidex="true"
+        jar="C:\Users\Mescla\.android\build-cache\b4a8d7ad973569f86328ec3be7001213af8b223a\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="32f45bd44a3e7efc235bbfed120029290f5d674a">
+        <dex dex="C:\Users\Mescla\Documents\GitHub\android-crud-rv-jogos\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_98adffe577f6fccfa9b8f0919e05956bf0f66fe4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\Mescla\Documents\GitHub\android-crud-rv-jogos\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="095a955d5008718954d11ee7dd0eb251b094d880">
+        sha1="c6931358c9c773634b5f35c6c37f6110ec7ddc06">
         <dex dex="C:\Users\Mescla\Documents\GitHub\android-crud-rv-jogos\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_05c0a82d37b33dcc3b390ff1871cdbfaea1fc87c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Mescla\.gradle\caches\modules-2\files-2.1\com.google.code.findbugs\jsr305\2.0.1\516c03b21d50a644d538de0f0369c620989cd8f0\jsr305-2.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="516c03b21d50a644d538de0f0369c620989cd8f0">
+        <dex dex="C:\Users\Mescla\Documents\GitHub\android-crud-rv-jogos\app\build\intermediates\transforms\dex\debug\folders\1000\10\jsr305-2.0.1_a161c4bf6d79e585d04544c662fc1672c9791809\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Mescla\.gradle\caches\modules-2\files-2.1\commons-cli\commons-cli\1.2\2bf96b7aa8b611c177d329452af1dc933e14501c\commons-cli-1.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2bf96b7aa8b611c177d329452af1dc933e14501c">
+        <dex dex="C:\Users\Mescla\Documents\GitHub\android-crud-rv-jogos\app\build\intermediates\transforms\dex\debug\folders\1000\10\commons-cli-1.2_402c242c41d554024c8f71c3af49290c1a5c1ab9\classes.dex" />
     </item>
     <item
         is-multidex="true"
